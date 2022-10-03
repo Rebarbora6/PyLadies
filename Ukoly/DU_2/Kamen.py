@@ -1,24 +1,35 @@
 from random import randrange
 
-nahoda = randrange(1, 3)
-if nahoda == 1:
-    x = 'kamen'
-elif nahoda == 2:
-        x = 'nuzky'
-elif nahoda == 3:
-        x = 'papir'
+# 1 = kamen, 2 = nuzky, 3 = papir
 
-Tah_pocitace = x
-Tvuj_tah = input('Zadej svuj tah (kamen, nuzky nebo papir): ')
+comp_int = randrange(1, 4)
+if comp_int == 1:
+    comp_str = 'kamen'
+elif comp_int == 2:
+    comp_str = 'nuzky'
+elif comp_int == 3:
+    comp_str = 'papir'
 
-if Tah_pocitace == 'kamen' and Tvuj_tah == 'kamen' or Tah_pocitace == 'nuzky' and Tvuj_tah == 'nuzky' or Tah_pocitace == 'papir' and Tvuj_tah == 'papir':
-    print('Počítačův tah je ' + Tah_pocitace)
-    print ('Plichta')
-elif Tah_pocitace == 'kamen' and Tvuj_tah == 'papir' or Tah_pocitace == 'nuzky' and Tvuj_tah == 'kamen' or Tah_pocitace == 'papir' and Tvuj_tah == 'nuzky':
-    print('Počítačův tah je ' + Tah_pocitace)
-    print ('Výhra!')
-elif Tah_pocitace == 'kamen' and Tvuj_tah == 'nuzky' or Tah_pocitace == 'nuzky' and Tvuj_tah == 'papir' or Tah_pocitace == 'papir' and Tvuj_tah == 'kamen':
-    print('Počítačův tah je ' + Tah_pocitace)
+# Zadání tahu uživatelem a převod na číslo
+
+user_str = input('Zadej svuj tah (kamen, nuzky nebo papir): ')
+if user_str == 'kamen':
+    user_int = 1
+elif user_str == 'nuzky':
+    user_int = 2
+elif user_str == 'papir':
+    user_int = 3
+
+print('Počítačův tah je ' + comp_str)
+
+# Vyhodnocení hry
+
+if comp_int == user_int:
+    print('Plichta')
+elif (comp_int == 1 and user_int == 3) or (user_int == (comp_int - 1)):
+    print('Výhra!')
+elif (comp_int == 3 and user_int == 1) or (user_int == (comp_int + 1)):
     print('Prohráls :/')
-else: 
+
+else:
     print('Nepodváděj, já jsem tě viděl!')
