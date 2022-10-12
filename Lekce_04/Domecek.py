@@ -1,7 +1,7 @@
 from turtle import color, forward, left, fillcolor, begin_fill, forward, left, end_fill, exitonclick
 
 size = 100
-color = "blue"
+color = "#C676E1"
 
 fillcolor(color)
 begin_fill()
