@@ -5,7 +5,6 @@ for animal in pets:
     pair = (animal[1:], animal)
     list_of_pairs.append(pair)
 list_of_pairs.sort()
-print(list_of_pairs)
 
 final_list = []
 for k, h in list_of_pairs:
