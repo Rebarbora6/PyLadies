@@ -7,9 +7,6 @@ while len(birth_number) != 11:
 format = birth_number.split('/')
 without_slash = ''.join(format)
 
-day = int(birth_number[4:6])
-month = int(birth_number[2:4])
-
 month_30 = [4, 6, 9, 11]
 month_31 = [1, 3, 5, 7, 8, 10, 12]
 
@@ -18,6 +15,8 @@ if not without_slash.isnumeric:
 if birth_number.count('/') > 1:
     print('There should be only one separator')
 else:
+    day = int(birth_number[4:6])
+    month = int(birth_number[2:4])
     if birth_number[6] != '/':
         print('Separator has to be slash "/" in 7th position')
     else:
