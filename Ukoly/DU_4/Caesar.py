@@ -1,11 +1,11 @@
 key = input('Key: ')
-while key.isnumeric() is False or (int(key) < 0):
+while not key.isnumeric() or (int(key) < 0):
     print('Key has to be positive number.')
     key = input('Key: ')
 key = int(key) % 26
 
-convert = list()
-ciphertext = list()
+convert = []
+ciphertext = []
 
 plaintext = input('Plaintext: ')
 while len(plaintext) != len(convert):
