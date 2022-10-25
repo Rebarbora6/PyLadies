@@ -1,8 +1,7 @@
 birth_number = input('Enter the birth number: ')
 while len(birth_number) != 11:
-    if len(birth_number) != 11:
-        print('The number has to be 11 characters long')
-        birth_number = input('Enter the birth number: ')
+    print('The number has to be 11 characters long')
+    birth_number = input('Enter the birth number: ')
 
 format = birth_number.split('/')
 without_slash = ''.join(format)
@@ -10,21 +9,17 @@ without_slash = ''.join(format)
 month_30 = [4, 6, 9, 11]
 month_31 = [1, 3, 5, 7, 8, 10, 12]
 
-if not without_slash.isnumeric:
+if not (without_slash.isnumeric):
     print('You can use only digits or slash "/"')
 if birth_number.count('/') > 1:
     print('There should be only one separator')
 else:
-    day = int(birth_number[4:6])
-    month = int(birth_number[2:4])
     if birth_number[6] != '/':
         print('Separator has to be slash "/" in 7th position')
     else:
-        if len(format[0]) != 6:
-            print('There have to be 6 characters infront the slash')
-        if len(format[1]) != 4:
-            print('There have to be 4 characters after the slash')
-
+        day = int(birth_number[4:6])
+        month = int(birth_number[2:4])     
+       
         if int(without_slash) % 11 != 0:
             print('The number hast to be divisible by 11')
         if month > 50:
