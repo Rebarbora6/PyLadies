@@ -1,9 +1,7 @@
 from random import randrange
 
-winner = None
-
-
 def evaluation(string):
+    winner = None
     if 'xxx' in string and 'ooo' not in string:
         winner = '"x"'
     elif 'ooo' in string and 'xxx' not in string:
