@@ -60,5 +60,6 @@ def piskvorky1d():
         evaluation(field_computer) == 'no one':
             return
 
+
 if '__main__' == __name__:
     piskvorky1d()

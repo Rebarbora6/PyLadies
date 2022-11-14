@@ -11,6 +11,7 @@ def move_of_computer(field, sign):
     field_computer = format_of_field(field, number_of_field, sign)
     return field_computer
 
+
 def format_of_field(field_input, position, sign):
     start = field_input[:position]
     end = field_input[position + 1:]

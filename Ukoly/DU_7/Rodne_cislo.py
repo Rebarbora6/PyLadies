@@ -10,6 +10,7 @@ def main():
 
     return number
 
+
 def format(birth_number):
     print(birth_number)
     separate = birth_number.split('/')
@@ -41,7 +42,7 @@ def divisibility(birth_number):
     try:
         int(without_slash) % 11 == 0
         if int(without_slash) % 11 != 0:
-            raise ValueError ('The number hast to be divisible by 11')
+            raise ValueError('The number hast to be divisible by 11')
     except ValueError:
         print('The number hast to be divisible by 11')
         return False
@@ -50,41 +51,41 @@ def divisibility(birth_number):
 
 
 def sex(month):
-        if month > 50:
-            month = month - 50
-            return 'Female'
-        if month > 0 and month <= 12:
-            return 'Male'
-        if month <= 0 or (month > 12 and month <= 50) or month > 62:
-            print('The value of month of birth is incorrect')
-            return None
+    if month > 50:
+        month = month - 50
+        return 'Female'
+    if month > 0 and month <= 12:
+        return 'Male'
+    if month <= 0 or (month > 12 and month <= 50) or month > 62:
+        print('The value of month of birth is incorrect')
+        return None
 
 
 def date_of_birth(day, month, year):
-        if month > 50:
-            month = month - 50
-        if int(year) >= 85:
-            year = int('19' + str(year))
-        elif int(year) <= 22 and \
-        int(year) >= 0:
-            year = int('20' + str(year))
+    if month > 50:
+        month = month - 50
+    if int(year) >= 85:
+        year = int('19' + str(year))
+    elif int(year) <= 22 and \
+    int(year) >= 0:
+        year = int('20' + str(year))
+    else:
+        print('The birth number was publicated before 1985')
+        return False
+    if (day > 0 and day <= 31):
+        if month == 2 and day <= 28 or \
+        year % 4 == 0 and month == 2 and day <= 29 or \
+        month in MONTH_30 and day <= 30 or \
+        month in MONTH_31 and day <= 31:
+            datum = '{}. {}. {}'.format(day, month, year)
+            print('Date of birth: ', datum)
+            return datum
         else:
-            print('The birth number was publicated before 1985')
+            print('This day has never happened')
             return False
-        if (day > 0 and day <= 31):
-            if month == 2 and day <= 28 or \
-            year % 4 == 0 and month == 2 and day <= 29 or \
-            month in MONTH_30 and day <= 30 or \
-            month in MONTH_31 and day <= 31:
-                datum = '{}. {}. {}'.format(day, month, year)
-                print('Date of birth: ', datum)
-                return datum
-            else:
-                print('This day has never happened')
-                return False
-        else:
-            print('The value of day of birth is incorrect')
-            return False
+    else:
+        print('The value of day of birth is incorrect')
+        return False
 
 
 def analyze():
@@ -95,5 +96,6 @@ def analyze():
         year = int(birth_number[0:2])
         date_of_birth(day, month, year)
         print('Sex:', sex(month))
+
 
 analyze()
