@@ -1,4 +1,5 @@
 from ai import move_of_computer
+from utils import format_of_field
 
 
 def evaluation(string):
@@ -15,14 +16,6 @@ def evaluation(string):
     if winner is not None:
         print('The winner is ' + winner)
     return winner
-
-
-def format_of_field(field_input, position, sign):
-    start = field_input[:position]
-    end = field_input[position + 1:]
-    field_output = '{}{}{}'.format(start, sign, end)
-    print(field_output)
-    return field_output
 
 
 def move_of_player(field, sign):

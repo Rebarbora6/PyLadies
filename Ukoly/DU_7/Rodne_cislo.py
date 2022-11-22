@@ -7,7 +7,6 @@ def main():
     while len(number) != 11:
         print('The number has to be 11 characters long')
         number = input('Enter the birth number: ')
-
     return number
 
 
@@ -23,15 +22,11 @@ def format(birth_number):
         birth_number.count('/') == 1
         if birth_number.count('/') > 1:
             raise ValueError('There should be only one separator')
-    except ValueError:
-        print('There should be only one separator')
-        return False
-    try:
         birth_number[6] == '/'
         if birth_number[6] != '/':
             raise ValueError('Separator has to be slash "/" in 7th position')
-    except ValueError:
-        print('Separator has to be slash "/" in 7th position')
+    except ValueError as exc:
+        print(exc)
         return False
     return True
 
@@ -46,8 +41,7 @@ def divisibility(birth_number):
     except ValueError:
         print('The number hast to be divisible by 11')
         return False
-    else:
-        return True
+    return True
 
 
 def sex(month):
@@ -80,17 +74,15 @@ def date_of_birth(day, month, year):
             datum = '{}. {}. {}'.format(day, month, year)
             print('Date of birth: ', datum)
             return datum
-        else:
-            print('This day has never happened')
-            return False
-    else:
-        print('The value of day of birth is incorrect')
+        print('This day has never happened')
         return False
+    print('The value of day of birth is incorrect')
+    return False
 
 
 def analyze():
     birth_number = main()
-    if format(birth_number) == True and divisibility(birth_number) == True:
+    if format(birth_number) and divisibility(birth_number):
         day = int(birth_number[4:6])
         month = int(birth_number[2:4])
         year = int(birth_number[0:2])

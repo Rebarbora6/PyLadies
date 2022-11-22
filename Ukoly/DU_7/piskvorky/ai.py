@@ -1,4 +1,5 @@
 from random import randrange
+from utils import format_of_field
 
 
 def move_of_computer(field, sign):
@@ -10,11 +11,3 @@ def move_of_computer(field, sign):
             break
     field_computer = format_of_field(field, number_of_field, sign)
     return field_computer
-
-
-def format_of_field(field_input, position, sign):
-    start = field_input[:position]
-    end = field_input[position + 1:]
-    field_output = '{}{}{}'.format(start, sign, end)
-    print(field_output)
-    return field_output
